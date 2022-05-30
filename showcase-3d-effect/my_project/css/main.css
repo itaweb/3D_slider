@@ -7,6 +7,7 @@
   --lineheight: 1.65;
   --userfont: roboto-st, sans-serif;
   --systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --padding: 120px;
 }
 
 /* BOOTSTRAP SETTINGS SECTION */
@@ -58,6 +59,12 @@
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  src: url("../fonts/ExcellentdisplayfontBold.otf") format("otf");
+  font-family: "Excellent-st";
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* GENERAL CSS SETTINGS */
 
@@ -106,6 +113,28 @@ html {
   overflow: hidden;
 }
 
+.showcase::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  box-shadow: inset 0 0 500px #000;
+}
+.showcase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(../images/light.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center -65px;
+  animation: k-light 3s ease-in-out infinite;
+}
+
 .showcase__video {
   position: absolute;
   top: 0;
@@ -113,5 +142,68 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.5;
+  opacity: 0.48;
 }
+
+.showcase__content-wrapper {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: var(--padding) 0;
+}
+
+.showcase__content-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url(../images/glow.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: k-glow 1.8s ease-in-out infinite;
+}
+
+.showcase__header {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  top: 40px;
+  /* font-family: Excellent-st, sans-serif; */
+  font-family: assassin-st, sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.showcase__header span {
+  color: var(--accent);
+}
+
+/* ANIMATIONS */
+
+@keyframes k-light {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+@keyframes k-glow {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+} ;
